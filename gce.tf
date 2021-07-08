@@ -28,7 +28,7 @@ resource "google_compute_instance" "vm-instance" {
 
     service_account {
         # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-        email  = "jenkins-sa@epam-001.iam.gserviceaccount.com"
+        email  = google_service_account.default.email
         scopes = ["cloud-platform"]
   }
 }
