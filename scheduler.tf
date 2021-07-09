@@ -9,7 +9,7 @@ resource "google_cloud_scheduler_job" "job" {
 
   pubsub_target {
     topic_name = "projects/epam-001/topics/task01-topic"
-    data       = base64encode("[ { name:Ramses } ]")    
+    data       = base64encode("[ { \"name\":\"Ramses\" } ]")     
   }
 
   depends_on    = [ google_pubsub_subscription.pubsub_sub ]
