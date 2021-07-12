@@ -10,16 +10,17 @@ resource "google_compute_instance" "vm-instance" {
         }
     }
 
-    metadata = {
-        startup-script = <<SCRIPT
-        echo "#!/bin/bash" > /home/ubuntu/demo_task01.sh
-        echo '/snap/bin/gcloud pubsub subscriptions pull task01-subscription --auto-ack --limit=10 --format='\''value(DATA)'\'' > /home/ubuntu/output_`date +%d-%m-%Y_%H:%M:%S`.json' >> /home/ubuntu/demo_task01.sh
-        echo "/snap/bin/gsutil cp /home/ubuntu/output* gs://task01-bucket/" >> /home/ubuntu/demo_task01.sh
-        echo "rm -rf /home/ubuntu/output* " >> /home/ubuntu/demo_task01.sh
-        chmod +x /home/ubuntu/demo_task01.sh
-        echo "*/5 * * * * /home/ubuntu/demo_task01.sh" | /usr/bin/crontab
-        SCRIPT
-    } 
+    metadata_startup_script = file("${path.module}/startup.sh")
+    # metadata = {
+    #     startup-script = <<SCRIPT
+    #     echo "#!/bin/bash" > /home/ubuntu/demo_task01.sh
+    #     echo '/snap/bin/gcloud pubsub subscriptions pull task01-subscription --auto-ack --limit=10 --format='\''value(DATA)'\'' > /home/ubuntu/output_`date +%d-%m-%Y_%H:%M:%S`.json' >> /home/ubuntu/demo_task01.sh
+    #     echo "/snap/bin/gsutil cp /home/ubuntu/output* gs://task01-bucket/" >> /home/ubuntu/demo_task01.sh
+    #     echo "rm -rf /home/ubuntu/output* " >> /home/ubuntu/demo_task01.sh
+    #     chmod +x /home/ubuntu/demo_task01.sh
+    #     echo "*/5 * * * * /home/ubuntu/demo_task01.sh" | /usr/bin/crontab
+    #     SCRIPT
+    # } 
 
     network_interface {
         subnetwork = "${google_compute_subnetwork.subnetwork.name}"
