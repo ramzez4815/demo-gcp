@@ -6,47 +6,21 @@ variable "gcp_project_id" {
   type        = string
   description = "GCP Project ID"
 }
-
-
-variable "gke_custler_name" {
+variable "pubsub_topic_name" {
   type        = string
-  description = "GKE Cluster Name"
+  description = "Pubsub topic name"
 }
-variable "gke_location" {
+variable "scheduler_time_zone" {
   type        = string
-  description = "GKE Location"
+  description = "Scheduler Time Zone"
 }
-variable "gke_zones" {
-  type        = list(string)
-  description = "GKE List of Zones"
-}
-variable "gke_regional" {
-  type        = bool
-  description = "GKE Regional Flag"
-}
-variable "gke_network_name" {
+variable "scheduler_name" {
   type        = string
-  description = "GKE VPC Name"
+  description = "Scheduler name"
 }
-variable "gke_subnetwork_name" {
+variable "scheduler_description" {
   type        = string
-  description = "GKE Subnetwork Name"
-}
-variable "gke_horizontal_autoscaling" {
-  type        = bool
-  description = "GKE Horizontal Autoscaling Flag"
-}
-variable "gke_load_balancer" {
-  type        = bool
-  description = "GKE Load Balancer Flag"
-}
-variable "gke_node_pool_name" {
-  type        = string
-  description = "GKE Node Pool Name"
-}
-variable "gke_service_account" {
-  type        = string
-  description = "GKE Service Account Name"
+  description = "Scheduler name"
 }
 variable "vpc_auto_create_subnetworks" {
   type        = bool
@@ -55,28 +29,4 @@ variable "vpc_auto_create_subnetworks" {
 variable "vpc_mtu" {
   type        = number
   description = "VPC MTU Value"
-}
-variable "gke_router_name" {
-  type        = string
-  description = "GKE router name"
-}
-variable "gke_nat_name" {
-  type        = string
-  description = "GKE Nat name"
-}
-variable "gke_machine_type" {
-  type        = string
-  description = "GKE Machine Type"
-}
-variable "gke_disk_type" {
-  type        = string
-  description = "GKE Disk Type"
-}
-variable "gke_pod_range" {
-  type        = string
-  description = "GKE Pod Range Name"
-}
-variable "gke_service_range" {
-  type        = string
-  description = "GKE Service Range Name"
 }
