@@ -22,6 +22,10 @@ variable "scheduler_description" {
   type        = string
   description = "Scheduler name"
 }
+variable "vpc_name" {
+  type        = string
+  description = "VPC name"
+}
 variable "vpc_auto_create_subnetworks" {
   type        = bool
   description = "VPC Autocreate subnetwork flag"
@@ -29,6 +33,18 @@ variable "vpc_auto_create_subnetworks" {
 variable "vpc_mtu" {
   type        = number
   description = "VPC MTU Value"
+}
+variable "subnet_name" {
+  type        = string
+  description = "Subnet name"
+}
+variable "subnet_region" {
+  type        = string
+  description = "Subnet Region"
+}
+variable "firewall_name" {
+  type        = string
+  description = "Firewall Name"
 }
 variable "pubsub_topic" {
   type        = string

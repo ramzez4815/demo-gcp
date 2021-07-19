@@ -1,21 +1,21 @@
 resource "google_compute_network" "vpc_network" {
-  name                    = "task01-vpc"
-  mtu                     = "1460"
-  auto_create_subnetworks = false
-  project                 = "epam-001"
+  name                    = var.vpc_name
+  mtu                     = var.vpc_mtu
+  auto_create_subnetworks = var.vpc_auto_create_subnetworks
+  project                 = var.gcp_project_id
 }
 
 resource "google_compute_subnetwork" "subnetwork" {
-  name          = "task01-subnet"
+  name          = var.subnet_name
   ip_cidr_range = "187.232.111.0/24"
-  region        = "us-central1"
-  network       = "task01-vpc"
+  region        = var.subnet_region
+  network       = var.vpc_name
   depends_on    = [google_compute_network.vpc_network]
 
 }
 
 resource "google_compute_firewall" "allow-ssh" {
-  name    = "task01-firewall"
+  name    = var.firewall_name
   network = google_compute_network.vpc_network.name
   allow {
     protocol = "tcp"
