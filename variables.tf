@@ -38,3 +38,11 @@ variable "pubsub_sub_name" {
   type        = string
   description = "PubSub Subscriber Name"
 }
+variable "gcs_region" {
+  type        = string
+  description = "GCS Region"
+}
+variable "gcs_name" {
+  type        = string
+  description = "GCS Name"
+}

@@ -1,5 +1,7 @@
 gcp_project_id              = "epam-001"
 gcp_region                  = "us-central1"
+gcs_region                  = "us-central1"
+gcs_name                    = "task01-bucket"
 vpc_auto_create_subnetworks = false
 vpc_mtu                     = 1460
 pubsub_topic_name           = "projects/epam-001/topics/task01-topic"
