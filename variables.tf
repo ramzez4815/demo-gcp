@@ -46,3 +46,19 @@ variable "gcs_name" {
   type        = string
   description = "GCS Name"
 }
+variable "gce_name" {
+  type        = string
+  description = "GCE Name"
+}
+variable "gce_machine_type" {
+  type        = string
+  description = "GCE Machine Type"
+}
+variable "gce_zone" {
+  type        = string
+  description = "GCE Zone"
+}
+variable "gce_os" {
+  type        = string
+  description = "GCE OS"
+}
