@@ -1,5 +1,5 @@
-gcp_project_id              = "epam-001"
-gcp_region                  = "us-central1"
+gcp_project_id = "epam-001"
+gcp_region     = "us-central1"
 
 
 gke_custler_name            = "epam-cluster"
