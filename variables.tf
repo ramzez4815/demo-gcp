@@ -30,3 +30,11 @@ variable "vpc_mtu" {
   type        = number
   description = "VPC MTU Value"
 }
+variable "pubsub_topic" {
+  type        = string
+  description = "PubSub Topic Name"
+}
+variable "pubsub_sub_name" {
+  type        = string
+  description = "PubSub Subscriber Name"
+}

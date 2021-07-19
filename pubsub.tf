@@ -1,10 +1,10 @@
 resource "google_pubsub_topic" "pubsub_topic" {
   project = var.gcp_project_id
-  name    = "task01-topic"
+  name    = var.pubsub_topic
 }
 
 resource "google_pubsub_subscription" "pubsub_sub" {
-  name    = "task01-subscription"
+  name    = var.pubsub_sub_name
   project = var.gcp_project_id
   topic   = google_pubsub_topic.pubsub_topic.name
 
