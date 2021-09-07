@@ -2,8 +2,8 @@ resource "google_cloud_scheduler_job" "job" {
   name        = var.scheduler_name
   description = var.scheduler_description
   schedule    = "* * * * *"
-  project     = var.gcp_project_id
-  region      = var.gcp_region
+  project     = var.project_id
+  region      = var.scheduler_region
   time_zone   = var.scheduler_time_zone
 
 
@@ -12,7 +12,6 @@ resource "google_cloud_scheduler_job" "job" {
     data       = base64encode("[ { \"name\":\"Ramses\" } ]")
   }
 
-  depends_on = [google_pubsub_subscription.pubsub_sub]
 }
 
 

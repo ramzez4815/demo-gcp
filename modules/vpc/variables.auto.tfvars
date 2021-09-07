@@ -1,0 +1,12 @@
+project_id                  = "epam-001"
+subnet_region               = "us-central1"
+gce_network_name            = "new-network"
+vpc_mtu                     = 1460
+vpc_auto_create_subnetworks = false
+gce_subnetwork_name         = "new-subnetwork"
+gce_subnet_ip               = "10.232.0.0/20"
+firewall_name               = "task01-firewall"
+gce_firewall_protocol       = "tcp"
+gce_firewall_port           = "22"
+gce_firewall_range          = "0.0.0.0/0"
+gce_firewall_target         = "vm-instance"

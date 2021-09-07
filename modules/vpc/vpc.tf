@@ -1,15 +1,15 @@
 resource "google_compute_network" "vpc_network" {
-  name                    = var.vpc_name
+  name                    = var.gce_network_name
   mtu                     = var.vpc_mtu
   auto_create_subnetworks = var.vpc_auto_create_subnetworks
-  project                 = var.gcp_project_id
+  project                 = var.project_id
 }
 
 resource "google_compute_subnetwork" "subnetwork" {
-  name          = var.subnet_name
-  ip_cidr_range = "187.232.111.0/24"
+  name          = var.gce_subnetwork_name
+  ip_cidr_range = var.gce_subnet_ip
   region        = var.subnet_region
-  network       = var.vpc_name
+  network       = var.gce_network_name
   depends_on    = [google_compute_network.vpc_network]
 
 }
@@ -18,11 +18,11 @@ resource "google_compute_firewall" "allow-ssh" {
   name    = var.firewall_name
   network = google_compute_network.vpc_network.name
   allow {
-    protocol = "tcp"
-    ports    = ["22"]
+    protocol = var.gce_firewall_protocol
+    ports    = [var.gce_firewall_port]
   }
-  target_tags   = ["vm-instance"]
-  source_ranges = ["0.0.0.0/0"]
+  target_tags   = [var.gce_firewall_target]
+  source_ranges = [var.gce_firewall_range]
 
   depends_on = [google_compute_subnetwork.subnetwork]
 }

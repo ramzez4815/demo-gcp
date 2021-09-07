@@ -1,0 +1,6 @@
+scheduler_name              = "task01-job"
+scheduler_description       = "task01-job"
+project_id                  = "epam-001"
+scheduler_region            = "us-central1"
+scheduler_time_zone         = "America/Mexico_City"
+pubsub_topic_name           = "task01-topic"
